@@ -1,0 +1,13 @@
+{
+  "name": "ws-attributes",
+  "version": "1.0.0",
+  "description": "Attribute-based component library for Webstudio",
+  "scripts": {
+    "build:accordion": "esbuild src/accordion.js --bundle --minify --outfile=dist/accordion.min.js",
+    "build:slider": "esbuild src/slider.js --bundle --minify --outfile=dist/slider.min.js",
+    "build": "npm run build:accordion && npm run build:slider"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.0"
+  }
+}
