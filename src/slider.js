@@ -27,6 +27,29 @@
 */
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Register GSAP plugins
+// ─────────────────────────────────────────────────────────────────────────────
+if (typeof Draggable !== 'undefined') {
+  gsap.registerPlugin(Draggable);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Inject base CSS
+// ─────────────────────────────────────────────────────────────────────────────
+(function injectStyles() {
+  const id = 'ws-slider-styles';
+  if (document.getElementById(id)) return;
+  const style = document.createElement('style');
+  style.id = id;
+  style.textContent = [
+    '[data-ws-element="slider"] { overflow: hidden; position: relative; }',
+    '[data-ws-element="track"] { display: flex; will-change: transform; }',
+    '[data-ws-element="slide"] { flex-shrink: 0; }',
+  ].join(' ');
+  document.head.appendChild(style);
+})();
+
+// ─────────────────────────────────────────────────────────────────────────────
 // horizontalLoop() — GSAP Helper Function
 // Source: https://gsap.com/docs/v3/HelperFunctions/helpers/seamlessLoop/
 // ─────────────────────────────────────────────────────────────────────────────
